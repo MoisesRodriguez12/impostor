@@ -4,14 +4,34 @@ import { Server } from 'socket.io'
 import cors from 'cors'
 
 const app = express()
-app.use(cors())
+
+// Configurar CORS para permitir peticiones desde cualquier origen
+app.use(cors({
+  origin: '*',
+  credentials: true,
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}))
+
+// Ruta de health check
+app.get('/', (req, res) => {
+  res.json({ 
+    status: 'ok', 
+    message: 'Servidor de Socket.io para El Impostor',
+    rooms: rooms.size 
+  })
+})
 
 const httpServer = createServer(app)
 const io = new Server(httpServer, {
   cors: {
-    origin: "*",
-    methods: ["GET", "POST"]
-  }
+    origin: '*',
+    methods: ['GET', 'POST'],
+    credentials: true,
+    allowedHeaders: ['Content-Type']
+  },
+  transports: ['websocket', 'polling'],
+  allowEIO3: true
 })
 
 // Almacén de salas en memoria
