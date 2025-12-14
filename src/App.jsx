@@ -8,12 +8,56 @@ let socket = null
 
 // Temáticas y palabras del juego
 const tematicas = {
-  frutas: ['manzana', 'plátano', 'naranja', 'fresa', 'sandía', 'uva', 'piña', 'mango'],
-  animales: ['perro', 'gato', 'elefante', 'león', 'tigre', 'jirafa', 'mono', 'oso'],
-  países: ['méxico', 'españa', 'francia', 'italia', 'japón', 'brasil', 'argentina', 'alemania'],
-  deportes: ['fútbol', 'baloncesto', 'tenis', 'natación', 'atletismo', 'béisbol', 'voleibol', 'boxeo'],
-  profesiones: ['doctor', 'maestro', 'ingeniero', 'chef', 'artista', 'abogado', 'programador', 'músico'],
-  colores: ['rojo', 'azul', 'verde', 'amarillo', 'morado', 'naranja', 'rosa', 'negro']
+  frutas: [
+    'manzana', 'plátano', 'naranja', 'fresa', 'sandía', 'uva', 'piña', 'mango', 'pera', 'cereza',
+    'melón', 'kiwi', 'limón', 'mandarina', 'granada', 'papaya', 'coco', 'higo', 'guayaba', 'durazno',
+    'albaricoque', 'frambuesa', 'arándano', 'lichi', 'tamarindo'
+  ],
+  animales: [
+    'perro', 'gato', 'elefante', 'león', 'tigre', 'jirafa', 'mono', 'oso', 'conejo', 'zorro',
+    'lobo', 'caballo', 'vaca', 'oveja', 'cabra', 'ratón', 'murciélago', 'delfín', 'ballena', 'tiburón',
+    'águila', 'halcón', 'pato', 'gallina', 'pavo'
+  ],
+  países: [
+    'méxico', 'españa', 'francia', 'italia', 'japón', 'brasil', 'argentina', 'alemania', 'canadá', 'china',
+    'india', 'rusia', 'chile', 'colombia', 'perú', 'eeuu', 'inglaterra', 'portugal', 'sudáfrica', 'australia',
+    'egipto', 'turquía', 'corea', 'grecia', 'suiza'
+  ],
+  deportes: [
+    'fútbol', 'baloncesto', 'tenis', 'natación', 'atletismo', 'béisbol', 'voleibol', 'boxeo', 'rugby', 'golf',
+    'ciclismo', 'hockey', 'esgrima', 'surf', 'esquí', 'patinaje', 'remo', 'karate', 'judo', 'taekwondo',
+    'automovilismo', 'motocross', 'cricket', 'ping pong', 'badminton'
+  ],
+  profesiones: [
+    'doctor', 'maestro', 'ingeniero', 'chef', 'artista', 'abogado', 'programador', 'músico', 'arquitecto', 'enfermero',
+    'policía', 'bombero', 'panadero', 'carpintero', 'electricista', 'plomero', 'dentista', 'psicólogo', 'periodista', 'actor',
+    'piloto', 'azafata', 'veterinario', 'científico', 'jardinero'
+  ],
+  colores: [
+    'rojo', 'azul', 'verde', 'amarillo', 'morado', 'naranja', 'rosa', 'negro', 'blanco', 'gris',
+    'marrón', 'turquesa', 'beige', 'dorado', 'plateado', 'fucsia', 'lila', 'celeste', 'ocre', 'vino',
+    'coral', 'esmeralda', 'salmon', 'lavanda', 'cian'
+  ],
+  instrumentos: [
+    'guitarra', 'piano', 'violín', 'batería', 'flauta', 'saxofón', 'trompeta', 'clarinete', 'arpa', 'bajo',
+    'acordeón', 'trombón', 'oboe', 'banjo', 'ukelele', 'maracas', 'xilófono', 'timbal', 'chelo', 'contrabajo',
+    'cítara', 'armónica', 'cajón', 'castañuelas', 'sitar'
+  ],
+  oficina: [
+    'lápiz', 'bolígrafo', 'cuaderno', 'silla', 'escritorio', 'ordenador', 'impresora', 'grapadora', 'clip', 'carpeta',
+    'calculadora', 'regla', 'borrador', 'marcador', 'tijeras', 'folio', 'agenda', 'archivador', 'cinta adhesiva', 'sello',
+    'pizarra', 'proyector', 'altavoz', 'ratón', 'monitor'
+  ],
+  iconos: [
+    'napoleón', 'cleopatra', 'einstein', 'gandhi', 'colón', 'mandela', 'frida kahlo', 'sócrates', 'aristóteles', 'shakespeare',
+    'marie curie', 'leonardo da vinci', 'juana de arco', 'martin luther king', 'simón bolívar', 'alexander fleming', 'tesla', 'galileo', 'hitler', 'stalin',
+    'lincoln', 'washington', 'isabel la católica', 'moctezuma', 'pancho villa'
+  ],
+  películas: [
+    'titanic', 'avatar', 'inception', 'matrix', 'el padrino', 'star wars', 'rocky', 'gladiador', 'frozen', 'shrek',
+    'jurassic park', 'el rey león', 'harry potter', 'avengers', 'spiderman', 'batman', 'forrest gump', 'jumanji', 'buscando a nemo', 'la la land',
+    'el señor de los anillos', 'el exorcista', 'psicosis', 'pulp fiction', 'volver al futuro'
+  ]
 }
 
 function App() {
