@@ -36,22 +36,22 @@ const tematicas = {
     'marrón', 'turquesa', 'beige', 'dorado', 'plateado', 'fucsia', 'lila', 'celeste', 'ocre', 'vino',
     'coral', 'esmeralda', 'salmon', 'lavanda', 'cian'
   ],
-  'instrumentos musicales': [
+  instrumentos: [
     'guitarra', 'piano', 'violín', 'batería', 'flauta', 'saxofón', 'trompeta', 'clarinete', 'arpa', 'bajo',
     'acordeón', 'trombón', 'oboe', 'banjo', 'ukelele', 'maracas', 'xilófono', 'timbal', 'chelo', 'contrabajo',
     'cítara', 'armónica', 'cajón', 'castañuelas', 'sitar'
   ],
-  'objetos de oficina': [
+  oficina: [
     'lápiz', 'bolígrafo', 'cuaderno', 'silla', 'escritorio', 'ordenador', 'impresora', 'grapadora', 'clip', 'carpeta',
     'calculadora', 'regla', 'borrador', 'marcador', 'tijeras', 'folio', 'agenda', 'archivador', 'cinta adhesiva', 'sello',
     'pizarra', 'proyector', 'altavoz', 'ratón', 'monitor'
   ],
-  'personajes históricos': [
+  iconos: [
     'napoleón', 'cleopatra', 'einstein', 'gandhi', 'colón', 'mandela', 'frida kahlo', 'sócrates', 'aristóteles', 'shakespeare',
     'marie curie', 'leonardo da vinci', 'juana de arco', 'martin luther king', 'simón bolívar', 'alexander fleming', 'tesla', 'galileo', 'hitler', 'stalin',
     'lincoln', 'washington', 'isabel la católica', 'moctezuma', 'pancho villa'
   ],
-  'películas': [
+  películas: [
     'titanic', 'avatar', 'inception', 'matrix', 'el padrino', 'star wars', 'rocky', 'gladiador', 'frozen', 'shrek',
     'jurassic park', 'el rey león', 'harry potter', 'avengers', 'spiderman', 'batman', 'forrest gump', 'jumanji', 'buscando a nemo', 'la la land',
     'el señor de los anillos', 'el exorcista', 'psicosis', 'pulp fiction', 'volver al futuro'
