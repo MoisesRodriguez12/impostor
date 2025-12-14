@@ -46,6 +46,10 @@ function App() {
     socket.on('room-updated', (updatedRoom) => {
       console.log('Sala actualizada:', updatedRoom)
       setRoom(updatedRoom)
+      // Actualizar estado de admin si es necesario
+      if (playerName && updatedRoom.admin === playerName) {
+        setIsAdmin(true)
+      }
     })
     
     socket.on('game-started', (gameData) => {
@@ -104,7 +108,8 @@ function App() {
       if (response.success) {
         setRoom(response.room)
         setRoomCode(roomCode.toUpperCase())
-        setIsAdmin(false)
+        // Verificar si este jugador es el admin
+        setIsAdmin(response.room.admin === playerName)
         setScreen('lobby')
       } else {
         alert(response.error || 'Error al unirse a la sala')
