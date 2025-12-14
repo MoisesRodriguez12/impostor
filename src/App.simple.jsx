@@ -286,6 +286,7 @@ function App() {
                 >
                   <option value="">-- Selecciona --</option>
                   {Object.keys(tematicas).map((tema) => (
+                    console.log(tema),
                     <option key={tema} value={tema}>
                       {tema.charAt(0).toUpperCase() + tema.slice(1)}
                     </option>
