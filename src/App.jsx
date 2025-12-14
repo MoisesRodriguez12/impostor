@@ -131,6 +131,26 @@ function App() {
     })
   }
 
+  // Nueva ronda (solo admin)
+  const startNewRound = () => {
+    // Si no se seleccionó una nueva temática, usa la actual
+    const tematicaToUse = selectedTematica || assignedTematica
+    
+    if (!tematicaToUse) {
+      alert('Por favor selecciona una temática')
+      return
+    }
+
+    socket.emit('new-round', {
+      roomCode,
+      tematica: tematicaToUse,
+      words: tematicas[tematicaToUse]
+    })
+    
+    // Resetear la selección
+    setSelectedTematica('')
+  }
+
   // Pantalla de inicio
   if (screen === 'home') {
     return (
@@ -241,6 +261,27 @@ function App() {
                 </p>
               </div>
             </>
+          )}
+          
+          {isAdmin && (
+            <div className="admin-controls">
+              <p className="admin-label">👑 Controles de Administrador</p>
+              <select 
+                value={selectedTematica} 
+                onChange={(e) => setSelectedTematica(e.target.value)}
+                className="select"
+              >
+                <option value="">Misma temática ({assignedTematica})</option>
+                {Object.keys(tematicas).map((tema) => (
+                  <option key={tema} value={tema}>
+                    {tema.charAt(0).toUpperCase() + tema.slice(1)}
+                  </option>
+                ))}
+              </select>
+              <button onClick={startNewRound} className="btn btn-primary">
+                🔄 Nueva Ronda
+              </button>
+            </div>
           )}
         </div>
       </div>

@@ -128,6 +128,37 @@ io.on('connection', (socket) => {
     console.log(`Juego iniciado en sala ${roomCode}. Impostor: ${impostorPlayer.name}`)
   })
 
+  // Nueva ronda (regenerar palabra)
+  socket.on('new-round', (data) => {
+    const { roomCode, tematica, words } = data
+    const room = rooms.get(roomCode)
+    
+    if (!room) return
+    
+    // Seleccionar nuevo impostor aleatorio
+    const randomIndex = Math.floor(Math.random() * room.players.length)
+    const impostorPlayer = room.players[randomIndex]
+    
+    // Seleccionar nueva palabra aleatoria
+    const randomWord = words[Math.floor(Math.random() * words.length)]
+    
+    room.tematica = tematica
+    room.word = randomWord
+    room.impostor = impostorPlayer.name
+    
+    // Enviar información específica a cada jugador
+    room.players.forEach(player => {
+      const isImpostor = player.name === impostorPlayer.name
+      io.to(player.socketId).emit('game-started', {
+        role: isImpostor ? 'impostor' : 'player',
+        tematica: tematica,
+        word: isImpostor ? null : randomWord
+      })
+    })
+    
+    console.log(`Nueva ronda en sala ${roomCode}. Impostor: ${impostorPlayer.name}, Palabra: ${randomWord}`)
+  })
+
   // Desconexión
   socket.on('disconnect', () => {
     console.log('Usuario desconectado:', socket.id)

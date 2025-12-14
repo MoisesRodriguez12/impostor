@@ -230,6 +230,27 @@
   margin-bottom: 1.5rem;
 }
 
+.admin-controls {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.admin-label {
+  color: #ffd700;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.admin-controls .select {
+  margin-bottom: 1rem;
+}
+
+.admin-controls .btn {
+  margin-top: 0.5rem;
+}
+
 @media (max-width: 600px) {
   .title {
     font-size: 2rem;
